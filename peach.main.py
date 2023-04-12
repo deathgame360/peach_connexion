@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
-import tkinter
 import customtkinter
+import tkinter
+
 
 peach_connection = Tk()
 peach_connection.title('Peach connexion ')
