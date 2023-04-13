@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import ImageTk , Image
+from PIL import ImageTk, Image
 import messagebox
 import customtkinter
 import tkinter
@@ -15,19 +15,22 @@ peach_connection.geometry("500x500")
 peach_connection.configure(bg="blue")
 peach_connection.title('Devis')
 
-image_de_fond = ImageTk.PhotoImage(Image.open("manga_marché.jpeg"))
-font = customtkinter.CTkLabel(master=peach_connection, image=image_de_fond, text="heart beam")
-font.pack(fill='both')
 
-image_de_droite=ImageTk.PhotoImage(Image.open("manga_women.jpeg"))
-font_droite=customtkinter.CTkLabel(master=peach_connection, image=image_de_droite, texte=None)
-font_droite.pack(fill='right')
+image_de_fond = ImageTk.PhotoImage(Image.open("woomen drag.jpg"))
+font = customtkinter.CTkLabel(
+    master=peach_connection, image=image_de_fond)
+font.pack(side=LEFT)
 
-image_de_gauche=ImageTk.PhotoImage(Image.open("woomen drag.jpg"))
-font_gauche=customtkinter.CTkLabel(master=peach_connection, image=image_de_gauche, texte=None)
-font_gauche.pack(fill='left')
+image_de_droite = ImageTk.PhotoImage(Image.open("marche.jpeg"))
+font_droite = customtkinter.CTkLabel(
+    master=peach_connection, image=image_de_droite)
 
+font_droite.pack()
 
+image_de_gauche = ImageTk.PhotoImage(Image.open("manga_women.jpeg"))
+font_gauche = customtkinter.CTkLabel(
+    master=peach_connection, image=image_de_gauche)
+font_gauche.pack(side=RIGHT)
 
 
 peach_connection.mainloop()
