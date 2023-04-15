@@ -4,7 +4,7 @@ import messagebox
 import customtkinter
 import tkinter
 
-customtkinter.set_appearance_mode('Dark')
+customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("green")
 
 
@@ -16,21 +16,28 @@ peach_connection.configure(bg="blue")
 peach_connection.title('Devis')
 
 
-image_de_fond = ImageTk.PhotoImage(Image.open("woomen drag.jpg"))
+resize_IG = Image.open("manga_women.jpeg")
+resize_ID = Image.open("marche.jpeg")
+resize_IF = Image.open("woomen drag.jpg")
+
+marche = resize_IG.resize((500, 800), Image.ANTIALIAS)
+manga_women = resize_ID.resize((500, 800), Image.ANTIALIAS)
+woomen_drag = resize_IF.resize((500, 800), Image.ANTIALIAS)
+
+image_de_fond = ImageTk.PhotoImage(woomen_drag)
 font = customtkinter.CTkLabel(
-    master=peach_connection, image=image_de_fond)
-font.pack(side=LEFT)
+    master=peach_connection, image=image_de_fond, height=100, width=100, text="", text_color='Blue')
+font.pack(side=LEFT, padx=15, pady=0)
 
-image_de_droite = ImageTk.PhotoImage(Image.open("marche.jpeg"))
+image_de_droite = ImageTk.PhotoImage(marche)
 font_droite = customtkinter.CTkLabel(
-    master=peach_connection, image=image_de_droite)
+    master=peach_connection, image=image_de_droite, height=100, width=100, text="", text_color="blue")
+font_droite.pack(side=LEFT, padx=15, pady=0)
 
-font_droite.pack()
-
-image_de_gauche = ImageTk.PhotoImage(Image.open("manga_women.jpeg"))
+image_de_gauche = ImageTk.PhotoImage(manga_women)
 font_gauche = customtkinter.CTkLabel(
-    master=peach_connection, image=image_de_gauche)
-font_gauche.pack(side=RIGHT)
+    master=peach_connection, image=image_de_gauche, height=100, width=100, text="", text_color="blue")
+font_gauche.pack(side=LEFT, padx=15, pady=0)
 
 
 peach_connection.mainloop()
