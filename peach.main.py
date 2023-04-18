@@ -40,4 +40,9 @@ font_gauche = customtkinter.CTkLabel(
 font_gauche.pack(side=LEFT, padx=15, pady=0)
 
 
+frame_connexion = customtkinter.CTkFrame(
+    master=peach_connection, width=320, height=380, corner_radius=100)
+frame_connexion.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+
 peach_connection.mainloop()
