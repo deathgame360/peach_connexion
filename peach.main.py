@@ -20,9 +20,9 @@ resize_IG = Image.open("manga_women.jpeg")
 resize_ID = Image.open("marche.jpeg")
 resize_IF = Image.open("woomen drag.jpg")
 
-marche = resize_IG.resize((500, 800), Image.ANTIALIAS)
-manga_women = resize_ID.resize((500, 800), Image.ANTIALIAS)
-woomen_drag = resize_IF.resize((500, 800), Image.ANTIALIAS)
+marche = resize_IG.resize((500, 800), Image.LANCZOS)
+manga_women = resize_ID.resize((500, 800), Image.LANCZOS)
+woomen_drag = resize_IF.resize((500, 800), Image.LANCZOS)
 
 image_de_fond = ImageTk.PhotoImage(woomen_drag)
 font = customtkinter.CTkLabel(
