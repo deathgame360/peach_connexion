@@ -48,7 +48,7 @@ font_gauche.pack(side=BOTTOM, padx=15, pady=0)
 
 
 frame_connexion = customtkinter.CTkFrame(
-    master=peach_connection, width=500, height=500, corner_radius=100)
+    master=peach_connection, width=320, height=380, corner_radius=100)
 frame_connexion.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 connexion = customtkinter.CTkLabel(
@@ -66,18 +66,15 @@ Mot_de_passe.pack(pady=12, padx=10)  # place(x=150, y=200)
 
 bouton = customtkinter.CTkButton(
     master=peach_connection, text="Connexion")
-bouton.pack(pady=12, padx=10, side=LEFT)
+bouton.pack(pady=12, padx=10)
+
+checkbox = customtkinter.CTkCheckBox(
+    master=peach_connection, text="Se souvenir de moi")
+checkbox.pack(pady=12, padx=10)
 
 bouton = customtkinter.CTkButton(
     master=peach_connection, text="créer un compte")
-bouton.pack(pady=12, padx=10, side=LEFT)
+bouton.pack(pady=12, padx=10, side='left')
 
-# checkbox = customtkinter.CTkCheckBox(
-#    master=peach_connection, text="Se souvenir de moi")
-# checkbox.pack(pady=12, padx=10)
-
-# bouton = customtkinter.CTkLabel(
-#    master=peach_connection, text="mot de passe oublé", font=('Century Gothic', 12))
-# bouton.pack(pady=12, padx=10)
 
 peach_connection.mainloop()
