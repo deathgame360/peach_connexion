@@ -11,9 +11,9 @@ customtkinter.set_default_color_theme("green")
 peach_connection = customtkinter.CTk()
 
 peach_connection.title('Peach connexion ')
-peach_connection.geometry("500x500")
+peach_connection.geometry("900x900")
 peach_connection.configure(bg="blue")
-peach_connection.title('Devis')
+peach_connection.title('Connexion')
 
 
 resize_IG = Image.open("manga_women.jpeg")
@@ -48,36 +48,36 @@ font_gauche.pack(side=BOTTOM, padx=15, pady=0)
 
 
 frame_connexion = customtkinter.CTkFrame(
-    master=peach_connection, width=500, height=500, corner_radius=100)
+    master=peach_connection, width=800, height=800, corner_radius=100)
 frame_connexion.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 connexion = customtkinter.CTkLabel(
-    master=peach_connection, text="Connexion", font=("Strike", 24))
+    master=frame_connexion, text="Connexion", font=("Strike", 24))
 connexion.pack(pady=12, padx=10)  # place(x=150, y=45)
 
 Utilisateur = customtkinter.CTkEntry(
-    master=peach_connection, placeholder_text="Utilisateur")
+    master=frame_connexion, placeholder_text="Utilisateur")
 Utilisateur.pack(pady=12, padx=10)  # place(x=150, y=100)
 
 Mot_de_passe = customtkinter.CTkEntry(
-    master=peach_connection, placeholder_text="Mot de passe", show='*')
+    master=frame_connexion, placeholder_text="Mot de passe", show='*')
 Mot_de_passe.pack(pady=12, padx=10)  # place(x=150, y=200)
 
 
 bouton = customtkinter.CTkButton(
-    master=peach_connection, text="Connexion")
+    master=frame_connexion, text="Connexion")
 bouton.pack(pady=12, padx=10, side=LEFT)
 
 bouton = customtkinter.CTkButton(
-    master=peach_connection, text="créer un compte")
+    master=frame_connexion, text="créer un compte")
 bouton.pack(pady=12, padx=10, side=LEFT)
 
 # checkbox = customtkinter.CTkCheckBox(
-#    master=peach_connection, text="Se souvenir de moi")
-# checkbox.pack(pady=12, padx=10)
+#    master=frame_connexion, text="Se souvenir de moi")
+# checkbox.pack(pady=12, padx=10, side=BOTTOM)
 
 # bouton = customtkinter.CTkLabel(
-#    master=peach_connection, text="mot de passe oublé", font=('Century Gothic', 12))
-# bouton.pack(pady=12, padx=10)
+#    master=frame_connexion, text="mot de passe oublé", font=('Century Gothic', 12))
+# bouton.pack(pady=12, padx=10, side=BOTTOM)
 
 peach_connection.mainloop()
