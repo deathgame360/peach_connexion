@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import ImageTk, Image
-import messagebox
+from tkinter import messagebox
 import customtkinter
 import tkinter
 import csv
@@ -16,7 +16,9 @@ peach_connection.title('Peach connexion ')
 peach_connection.geometry("900x900")
 peach_connection.configure(bg="blue")
 peach_connection.title('Connexion')
+peach_connection.iconbitmap("D:\git ripository\peach_connexion\image\ordi.ico")
 
+# Définir les images
 
 resize_IG = Image.open("manga_women.jpeg")
 resize_ID = Image.open("marche.jpeg")
@@ -27,6 +29,8 @@ marche = resize_IG.resize((600, 900), Image.LANCZOS)
 manga_women = resize_ID.resize((200, 400), Image.LANCZOS)
 woomen_drag = resize_IF.resize((600, 900), Image.LANCZOS)
 manga_marché = resize_MM.resize((200, 400), Image.LANCZOS)
+
+# fonctions
 
 
 class FullScreenApp(object):
@@ -76,6 +80,37 @@ def create_account_window():
     register_button.grid(row=2, column=1)
 
 
+def Connexion():
+    # Ouvrir le fichier CSV contenant les noms d'utilisateur et les mots de passe
+    with open("users.csv", mode="r") as users_file:
+        reader = csv.reader(users_file)
+
+        # Récupérer les valeurs des champs de saisie
+        username = Utilisateur.get()
+        password = Mot_de_passe.get()
+
+        # Vérifier si les informations de connexion sont valides
+        for row in reader:
+            if username == row[0] and password == row[1]:
+                messagebox.showinfo("Succès", "Connexion réussie")
+                # Ouvrir une nouvelle fenêtre si la connexion est réussie
+                menue_accueil = customtkinter.CTk()
+                menue_accueil.title("Accueil")
+                menue_accueil.geometry("200x200")
+                menue_accueil.iconbitmap(
+                    "D:\git ripository\peach_connexion\image\ordi.ico")
+                peach_connection.destroy
+                mp = FullScreenApp(menue_accueil)
+                menue_accueil.mainloop()
+                return
+
+        # Si les informations de connexion ne sont pas valides, afficher un message d'erreur
+        messagebox.showerror(
+            "Erreur", "Nom d'utilisateur ou mot de passe incorrect")
+
+# dispositions des images avec affichage
+
+
 image_de_fond = ImageTk.PhotoImage(woomen_drag)
 font = customtkinter.CTkLabel(
     master=peach_connection, image=image_de_fond, height=100, width=100, text="", text_color='Blue')
@@ -96,6 +131,7 @@ font_gauche = customtkinter.CTkLabel(
     master=peach_connection, image=image_de_gauche, height=100, width=100, text="", text_color="blue")
 font_gauche.pack(side=BOTTOM, padx=15, pady=0)
 
+# création de la partie centrale de la fenêtre
 
 frame_connexion = customtkinter.CTkFrame(
     master=peach_connection, width=800, height=800, corner_radius=100)
@@ -113,9 +149,10 @@ Mot_de_passe = customtkinter.CTkEntry(
     master=frame_connexion, placeholder_text="Mot de passe", show='*')
 Mot_de_passe.pack(pady=12, padx=10)  # place(x=150, y=200)
 
+# création des boutons
 
 bouton = customtkinter.CTkButton(
-    master=frame_connexion, text="Connexion")
+    master=frame_connexion, text="Connexion", command=Connexion)
 bouton.pack(pady=12, padx=10, side=LEFT)
 
 bouton = customtkinter.CTkButton(
