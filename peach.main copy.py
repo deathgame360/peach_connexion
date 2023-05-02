@@ -122,13 +122,12 @@ bouton = customtkinter.CTkButton(
     master=frame_connexion, text="créer un compte", command=create_account_window)
 bouton.pack(pady=12, padx=10, side=LEFT)
 
-# checkbox = customtkinter.CTkCheckBox(
-#    master=frame_connexion, text="Se souvenir de moi")
-# checkbox.pack(pady=12, padx=10, side=BOTTOM)
-
-# bouton = customtkinter.CTkLabel(
-#    master=frame_connexion, text="mot de passe oublé", font=('Century Gothic', 12))
-# bouton.pack(pady=12, padx=10, side=BOTTOM)
+# Créez le bouton Quitter
+bouton_quitter = customtkinter.CTkButton(
+    master=peach_connection, text="Quitter", command=peach_connection.destroy
+)
+bouton_quitter.pack(side=BOTTOM, padx=20, pady=12)
+bouton_quitter.place(x=735, y=520)
 
 app = FullScreenApp(master=peach_connection)
 peach_connection.mainloop()
