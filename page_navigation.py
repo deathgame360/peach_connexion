@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import ImageTk, Image
 import customtkinter
+import tkinter as tk
 
 page_navigation = Tk()
 
@@ -29,37 +30,58 @@ font_logo = customtkinter.CTkLabel(
     master=page_navigation, image=image_logo, height=100, width=100, text="", text_color='Blue')
 font_logo.pack(side=RIGHT, padx=15, pady=0)
 
+# Créer un cadre (frame)
+cadre1 = tk.Frame(page_navigation, width=200, height=200, bg="#3CE68B")
+# Afficher le cadre
+cadre1.place()
+# Créer un cadre (frame)
 
+cadre2 = tk.Frame(page_navigation, width=200, height=200, bg="#F26433")
+# Afficher le cadre
+cadre2.place()  # Créer un cadre (frame)
+
+cadre3 = tk.Frame(page_navigation, width=200, height=200, bg="#FCF074")
+# Afficher le cadre
+cadre3.place()
 # 9 boutons: info général, qualité et amélioration, fiche de vie, controle périodique et vgp, rapport de maintenance BT,maintenance améliorative, doc tech,inventaire,pièce a commander.
 
-info_general = Button(text="info_general",
-                      background="#419AFA", font=("Arial", 12))
-info_general.pack(padx=4, pady=4)
+info_general = Button(master=cadre, text="info_general",
+                      background="#419AFA", font=("COMIC Sans MS", 15, "bold"))
+info_general.place()
 
 qualite_amelioration = Button(
-    text="qualite_amelioration", background="#419AFA")
-qualite_amelioration.pack(padx=4, pady=4)
+    master=cadre, text="qualite_amelioration", background="#419AFA", font=("Arial", 15, "bold"))
+qualite_amelioration.place()
 
-fiche_de_vie = Button(text="fiche_de_vie", background="#419AFA")
-fiche_de_vie.pack(padx=4, pady=4)
+fiche_de_vie = Button(master=cadre, text="fiche_de_vie",
+                      background="#419AFA", font=("Arial", 15, "bold"))
+fiche_de_vie.place()
 
-controle_periodique = Button(text="controle_periodique", background="#419AFA")
-controle_periodique.pack(padx=4, pady=4)
+controle_periodique = Button(master=cadre2,
+                             text="controle_periodique", background="#419AFA", font=("Arial", 15, "bold"))
+controle_periodique.place()
 
-maintenance_BT = Button(text="rapport de maintenance BT", background="#419AFA")
-maintenance_BT.pack(padx=4, pady=4)
+maintenance_BT = Button(master=cadre2, text="rapport de maintenance BT",
+                        background="#419AFA", font=("Arial", 15, "bold"))
+maintenance_BT.place()
 
-m_ameliorative = Button(text="maintenance améliorative", background="#419AFA")
-m_ameliorative.pack(padx=4, pady=4)
+m_ameliorative = Button(master=cadre2, text="maintenance améliorative",
+                        background="#419AFA", font=("Arial", 15, "bold"))
+m_ameliorative.place()
 
-doc_tech = Button(text="Documentation technique", background="#419AFA")
-doc_tech.pack(padx=4, pady=4)
+doc_tech = Button(master=cadre2, text="Documentation technique",
+                  background="#419AFA", font=("Arial", 15, "bold"))
+doc_tech.place()
 
-inventaire = Button(text="Inventaire", background="#419AFA")
-inventaire.pack(padx=4, pady=4)
+inventaire = Button(master=cadre3, text="Inventaire", background="#419AFA",
+                    font=("Arial", 15, "bold"))
+inventaire.place()
 
-a_commander = Button(text="Pièce à commander", background="#419AFA")
-a_commander.pack(padx=4, pady=4)
+a_commander = Button(master=cadre3, text="Pièce à commander",
+                     background="#419AFA", font=("Arial", 15, "bold"))
+
+
+a_commander.place()
 
 
 page_navigation.mainloop()
