@@ -14,7 +14,7 @@ mapp = Tk()
 mapp.title("Information du personnel")
 mapp.state("zoomed")
 
-# définir que la page soit a la taille de l'écran
+# définir que la page soit à la taille de l'écran
 
 
 class FullScreenApp(object):
@@ -33,7 +33,7 @@ class FullScreenApp(object):
         self._geom = geom
 
 
-# définir une fenètre:
+# définir une fenêtre
 Info_personnel = Frame(mapp)
 Info_personnel.pack(side=tk.LEFT, padx=20)
 
@@ -44,9 +44,8 @@ Tableau.heading(1, text="Nom")
 Tableau.heading(2, text="Prénom")
 Tableau.heading(3, text="mail")
 
-bouton = Button(text="script", command=executer_fichier)
+bouton = Button(text="Script", command=executer_fichier)
 bouton.pack()
-
 
 app = FullScreenApp(master=mapp)
 mapp.mainloop()

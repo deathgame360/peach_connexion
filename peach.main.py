@@ -12,25 +12,13 @@ customtkinter.set_default_color_theme("green")
 
 peach_connection = customtkinter.CTk()
 
+moncone = "C:\\Users\\ol08f\\Desktop\\GMAO\\peach_connexion\\image\\ordi.ico"
+
 peach_connection.title('Peach connexion ')
 peach_connection.geometry("900x900")
 peach_connection.configure(bg="blue")
 peach_connection.title('Connexion')
-# peach_connection.iconbitmap("D:\git ripository\peach_connexion\image\ordi.ico")
-
-# Définir les images
-
-resize_IG = Image.open("manga_women.jpeg")
-resize_ID = Image.open("marche.jpeg")
-resize_IF = Image.open("woomen drag.jpg")
-resize_MM = Image.open("manga_marché.jpeg")
-
-marche = resize_IG.resize((600, 900), Image.LANCZOS)
-manga_women = resize_ID.resize((200, 400), Image.LANCZOS)
-woomen_drag = resize_IF.resize((600, 900), Image.LANCZOS)
-manga_marché = resize_MM.resize((200, 400), Image.LANCZOS)
-
-# fonctions
+peach_connection.iconbitmap(moncone)
 
 
 class FullScreenApp(object):
@@ -47,6 +35,21 @@ class FullScreenApp(object):
         print(geom, self._geom)
         self.master.geometry(self._geom)
         self._geom = geom
+
+# Définir les images
+
+
+resize_IG = Image.open("manga_women.jpeg")
+resize_ID = Image.open("marche.jpeg")
+resize_IF = Image.open("woomen drag.jpg")
+resize_MM = Image.open("manga_marché.jpeg")
+
+marche = resize_IG.resize((600, 900), Image.LANCZOS)
+manga_women = resize_ID.resize((200, 400), Image.LANCZOS)
+woomen_drag = resize_IF.resize((600, 900), Image.LANCZOS)
+manga_marché = resize_MM.resize((200, 400), Image.LANCZOS)
+
+# fonctions
 
 
 def create_account_window():
@@ -165,6 +168,7 @@ bouton_quitter = customtkinter.CTkButton(
 )
 bouton_quitter.pack(side=BOTTOM, padx=20, pady=12)
 bouton_quitter.place(x=735, y=520)
+
 
 app = FullScreenApp(master=peach_connection)
 peach_connection.mainloop()
