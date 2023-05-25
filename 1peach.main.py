@@ -4,7 +4,14 @@ from tkinter import messagebox
 import customtkinter
 import tkinter
 import csv
+import subprocess
 
+# Importer la fonction run_second_script depuis votre deuxième script
+from navigation import page_navigation
+
+def on_connect_button_click():
+    # Appeler la fonction run_second_script lorsque le bouton de connexion est actionné
+    page_navigation()
 
 customtkinter.set_appearance_mode("Dark")
 customtkinter.set_default_color_theme("green")
@@ -35,6 +42,8 @@ class FullScreenApp(object):
         print(geom, self._geom)
         self.master.geometry(self._geom)
         self._geom = geom
+
+
 
 # Définir les images
 
@@ -83,6 +92,22 @@ def create_account_window():
     register_button.grid(row=2, column=1)
 
 
+def open_success_window():
+    # Créer une nouvelle fenêtre pour afficher le message de connexion réussie
+    success_window = Toplevel(peach_connection)
+    success_window.title("Connexion réussie")
+    success_window.geometry("200x200")
+    success_window.iconbitmap(moncone)
+
+    # Créer un label avec le message de connexion réussie
+    label = Label(success_window, text="Connexion réussie")
+    label.pack()
+
+    # Exécuter un script Python
+    chemin_fichier = r"C:\Users\ol08f\Desktop\GMAO\peach_connexion\2page_navigation.py"
+    subprocess.call(['python', chemin_fichier])
+
+
 def Connexion():
     # Ouvrir le fichier CSV contenant les noms d'utilisateur et les mots de passe
     with open("users.csv", mode="r") as users_file:
@@ -96,16 +121,11 @@ def Connexion():
         for row in reader:
             if username == row[0] and password == row[1]:
                 messagebox.showinfo("Succès", "Connexion réussie")
-                # Ouvrir une nouvelle fenêtre si la connexion est réussie
-                menue_accueil = customtkinter.CTk()
-                menue_accueil.title("Accueil")
-                menue_accueil.geometry("200x200")
-                menue_accueil.iconbitmap(
-                    "D:\git ripository\peach_connexion\image\ordi.ico")
+                open_success_window()
                 peach_connection.destroy()
-                mp = FullScreenApp(menue_accueil)
-                menue_accueil.mainloop()
                 return
+            chemin_fichier = r"C:\Users\ol08f\Desktop\GMAO\peach_connexion\2page_navigation.py"
+            subprocess.call(['python', chemin_fichier])
 
         # Si les informations de connexion ne sont pas valides, afficher un message d'erreur
         messagebox.showerror(
